@@ -35,18 +35,6 @@ public class Vec {
 		calcDir();
 	}
 	
-//	/**
-//	 * Create a polar vector
-//	 * @param mag Magnitude of vector
-//	 * @param dir Direction of vector (radians)
-//	 */
-//	public Vec(float mag, float dir) {
-//		this.x = mag * Math.cos(dir);
-//		this.y = mag * Math.sin(dir);
-//		this.mag = mag;
-//		this.dir = dir;
-//	}
-	
 	//Getters
 	
 	/**
@@ -164,8 +152,6 @@ public class Vec {
 	}
 	
 	//Operations
-	//Addition, subtraction, dot, cross?, norm
-	
 	
 	/**
 	 * Return a scaled vector
@@ -223,6 +209,29 @@ public class Vec {
 	 */
 	public static Vec sum(Vec v1, Vec v2) {
 		return new Vec(v2.x() + v1.x(), v2.y() + v1.y());
+	}
+	
+	/**
+	 * Create a vector from an angle
+	 * @param angRad Angle in radians
+	 * @return Unit vector at angRad
+	 */
+	public static Vec fromAngle(double angRad) {
+		return new Vec(Math.cos(angRad), Math.sin(angRad));
+	}
+	
+	/**
+	 * Create a vector from an angle
+	 * @param angRad Angle in radians
+	 * @param mag Magnitude of the vector
+	 * @return Vector at angRad with magnitude mag
+	 */
+	public static Vec fromAngle(double angRad, double mag) {
+		return Vec.scale(Vec.fromAngle(angRad), mag);
+	}
+	
+	public static double dist(Vec v1, Vec v2) {
+		return Vec.diff(v1, v2).mag();
 	}
 	
 	/**

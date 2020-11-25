@@ -8,8 +8,8 @@
 package main;
 
 public class Util {	
-	private static final int FPS = 50;
-	public static final long PAUSE = (long) (1.0 / FPS);
+	private static final int FPS = 60;
+	public static final long PAUSE = (long) (1000.0 / FPS);
 	
 	/**
 	 * Returns a random integer between lo and hi
